@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="wook.co.coc">
+    <!-- 사진을 인터넷으로 가져오는 라이브러리때문에 인터넷 사용가능하게 만들어줘야 함 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
