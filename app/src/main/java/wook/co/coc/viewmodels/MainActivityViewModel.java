@@ -17,33 +17,35 @@ public class MainActivityViewModel extends ViewModel {
     //mutable 이건 바뀔수있다는 뜻이다. 반면에 livedata는 immutable이다 즉 바뀔수 없다는 뜻이다.
     // 따라서 MutableLiveData는 mNicePlaces.setValue(),  mNicePlaces.postValue()로 값을 바꿀수 있지만
     // LiveData는 바꿀수 없다. 따라서 LiveData는 오직 관찰만가능하다.
-    private MutableLiveData<List<NicePlace>> mNicePlaces;
+    private MutableLiveData<List<NicePlace>> mNicePlaces; //MutuableLiveData 만들었음
     private NicePlaceRepository mRepo;
     private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>(); //데이터를 받는게 완료되면 progress bar 숨기고 아니면 보여주려고 만든 변수
 
+
     public void init(){
-        if(mNicePlaces!= null){
+        if(mNicePlaces!= null){ //null이 아니라면 함수 종료
             return;
         }
+        //mNicePlate가 Null이 아닐떄
         mRepo = NicePlaceRepository.getInstance();
         mNicePlaces = mRepo.getNicePlaces();
     }
 
     public void addNewValue(final NicePlace nicePlace){
-        mIsUpdating.setValue(true);
+        mIsUpdating.setValue(true); //true로 해준다.
 
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                List<NicePlace> currentPlace = mNicePlaces.getValue();
-                currentPlace.add(nicePlace);
-                mNicePlaces.postValue(currentPlace);
-                mIsUpdating.postValue(false);
+                List<NicePlace> currentPlace = mNicePlaces.getValue(); //가장 최신의 NicePlace가 담긴 List를 받음
+                currentPlace.add(nicePlace); //List에 매개변수로 받은 값 추가
+                mNicePlaces.postValue(currentPlace); //mNicePlace 수정
+                mIsUpdating.postValue(false); //true로 했음
             }
 
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(Void... voids) { //2초 뒤에 실행시킴
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -61,6 +63,4 @@ public class MainActivityViewModel extends ViewModel {
     public LiveData<Boolean> getIsUpdating(){
         return mIsUpdating;
     }
-
-
 }
