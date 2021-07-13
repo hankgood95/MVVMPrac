@@ -45,9 +45,16 @@ dependencies {
     //+ floating action bar 만들기 위해서
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 
-    // Lifecycle components 라는데 이건 이제 뷰나 프래그먼트들로부터 받은 데이터들을 어디로 이동하는지 관찰하기위해서 사용하는 라이브러리
-    //mvvm 디자인 패턴을 사용하는데 필수적인 부분
-    def archLifecycleVersion = '1.1.1'
-    implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
-    annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
+//    // Lifecycle components 라는데 이건 이제 뷰나 프래그먼트들로부터 받은 데이터들을 어디로 이동하는지 관찰하기위해서 사용하는 라이브러리
+//    //mvvm 디자인 패턴을 사용하는데 필수적인 부분
+//    def archLifecycleVersion = '1.1.1'
+//    implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
+//    annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
+
+    //ViewModel 사용에 필요한 변수
+    def lifecycle_version = "2.4.0-alpha02"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
 }
