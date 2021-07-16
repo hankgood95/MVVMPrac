@@ -1,4 +1,4 @@
-package wook.co.coc;
+package wook.co.mvvm_prac;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -13,23 +13,22 @@ import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import wook.co.coc.adapters.RecyclerViewAdapter;
-import wook.co.coc.models.NicePlace;
-import wook.co.coc.viewmodels.MainActivityViewModel;
+import wook.co.mvvm_prac.adapters.RecyclerViewAdapter;
+import wook.co.mvvm_prac.models.NicePlace;
+import wook.co.mvvm_prac.viewmodels.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
     //vars
-    private FloatingActionButton mFab;
-    private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter mAdapter;
-    private ProgressBar mProgressBar;
-    private MainActivityViewModel mMainActivityViewModel;
+    private FloatingActionButton mFab; //+ FloatingButton 담기위한 변수
+    private RecyclerView mRecyclerView; // RecyclerView 담기위한 변수
+    private RecyclerViewAdapter mAdapter; //RecyclerAdapter 담기위한 변수
+    private ProgressBar mProgressBar; // ProgressBar 담기위한 변수
+    private MainActivityViewModel mMainActivityViewModel; //MainActivityViewModel 담기위한 변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

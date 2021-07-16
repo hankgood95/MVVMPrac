@@ -1,4 +1,4 @@
-package wook.co.coc;
+package wook.co.mvvm_prac;
 
 import android.content.Context;
 

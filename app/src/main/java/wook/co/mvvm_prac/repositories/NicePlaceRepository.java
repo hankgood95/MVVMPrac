@@ -1,11 +1,11 @@
-package wook.co.coc.repositories;
+package wook.co.mvvm_prac.repositories;
 
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import wook.co.coc.models.NicePlace;
+import wook.co.mvvm_prac.models.NicePlace;
 
 //싱글톤 패턴
 public class NicePlaceRepository {
@@ -14,18 +14,18 @@ public class NicePlaceRepository {
     private ArrayList<NicePlace> dataSet = new ArrayList<>();
 
     public static NicePlaceRepository getInstance(){
-        if(instance == null){
+        if(instance == null){ //instance가 비어 있다면 진입
             instance = new NicePlaceRepository();
         }
         return instance;
     }
 
     public MutableLiveData<List<NicePlace>> getNicePlaces(){
-        setNicePlaces();
+        setNicePlaces(); //NicePlace 데이터 받음
 
-        MutableLiveData<List<NicePlace>> data = new MutableLiveData<>();
-        data.setValue(dataSet);
-        return data;
+        MutableLiveData<List<NicePlace>> data = new MutableLiveData<>(); //MutableLiveData 객체 생성
+        data.setValue(dataSet); //MutableLiveData 객체에 위에서 setNicePlaces()로 저장한 데이터로 초기화한다.
+        return data; //MutableLiveData return
     }
 
     private void setNicePlaces(){

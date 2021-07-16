@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "COC"
+rootProject.name = "MVVM_Prac"

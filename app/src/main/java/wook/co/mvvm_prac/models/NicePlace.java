@@ -1,4 +1,4 @@
-package wook.co.coc.models;
+package wook.co.mvvm_prac.models;
 
 public class NicePlace {
 
