@@ -1,13 +1,10 @@
-package wook.co.coc.adapters;
+package wook.co.mvvm_prac.adapters;
 
         import android.content.Context;
-        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
-        import android.widget.RelativeLayout;
         import android.widget.TextView;
-        import android.widget.Toast;
 
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
@@ -19,8 +16,8 @@ package wook.co.coc.adapters;
         import java.util.List;
 
         import de.hdodenhof.circleimageview.CircleImageView;
-        import wook.co.coc.R;
-        import wook.co.coc.models.NicePlace;
+        import wook.co.mvvm_prac.R;
+        import wook.co.mvvm_prac.models.NicePlace;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 

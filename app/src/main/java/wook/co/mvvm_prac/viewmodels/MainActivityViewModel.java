@@ -1,4 +1,4 @@
-package wook.co.coc.viewmodels;
+package wook.co.mvvm_prac.viewmodels;
 
 import android.os.AsyncTask;
 
@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-import wook.co.coc.models.NicePlace;
-import wook.co.coc.repositories.NicePlaceRepository;
+import wook.co.mvvm_prac.models.NicePlace;
+import wook.co.mvvm_prac.repositories.NicePlaceRepository;
 
 public class MainActivityViewModel extends ViewModel {
 
@@ -27,8 +27,8 @@ public class MainActivityViewModel extends ViewModel {
             return;
         }
         //mNicePlate가 Null이 아닐떄
-        mRepo = NicePlaceRepository.getInstance();
-        mNicePlaces = mRepo.getNicePlaces();
+        mRepo = NicePlaceRepository.getInstance(); //NicePlaceRepository 객체 전달 받는다.
+        mNicePlaces = mRepo.getNicePlaces(); //전달 받은 NicePlaceRepository로  NicePlace 데이터 전달 받음
     }
 
     public void addNewValue(final NicePlace nicePlace){
@@ -58,9 +58,9 @@ public class MainActivityViewModel extends ViewModel {
 
     public LiveData<List<NicePlace>> getNicePlaces(){
         return mNicePlaces;
-    }
+    } //mNicePlace return
 
     public LiveData<Boolean> getIsUpdating(){
         return mIsUpdating;
-    }
+    } //misUpdating return
 }
